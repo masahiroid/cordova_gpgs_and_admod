@@ -1,0 +1,59 @@
+{
+  "_from": "cordova-plugin-google-play-game-services",
+  "_id": "cordova-plugin-google-play-game-services@0.0.3",
+  "_inBundle": false,
+  "_integrity": "sha512-tt8Bizmm058bpcfHWOSWlxydpCLk+BGj3sOPADZt5uIi3HqMSLFpLybTmM431XjYn31U9aHecTUMOH81oUE0tA==",
+  "_location": "/cordova-plugin-google-play-game-services",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-google-play-game-services",
+    "name": "cordova-plugin-google-play-game-services",
+    "escapedName": "cordova-plugin-google-play-game-services",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-google-play-game-services/-/cordova-plugin-google-play-game-services-0.0.3.tgz",
+  "_shasum": "27ecb207889046b625f7ab4c9ca621594cd440cd",
+  "_spec": "cordova-plugin-google-play-game-services",
+  "_where": "C:\\Users\\ME\\Documents\\CordovaProjects\\CDV03c_gpgs\\gpgs",
+  "author": {
+    "name": "Naveed Ahmad"
+  },
+  "bugs": {
+    "url": "https://github.com/sweet-games/cordova-plugin-google-play-game-services/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [],
+  "cordova": {
+    "id": "cordova-plugin-google-play-game-services",
+    "platforms": [
+      "android"
+    ]
+  },
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Cordova wrapper fo Google Play Game Services",
+  "devDependencies": {},
+  "homepage": "https://github.com/sweet-games/cordova-plugin-google-play-game-services/#README.md",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "gpgs",
+    "leaderboard",
+    "game-services"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-google-play-game-services",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sweet-games/cordova-plugin-google-play-game-services.git"
+  },
+  "version": "0.0.3"
+}

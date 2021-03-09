@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="62" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions>var admobid = {}
+if (/(android)/i.test(navigator.userAgent)) {  // for android &amp; amazon-fireos
+  admobid = {
+    banner: 'ca-app-pub-3940256099942544/6300978111',
+    interstitial: 'ca-app-pub-3940256099942544/1033173712',
+  }
+} else if (/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {  // for ios
+  admobid = {
+    banner: 'ca-app-pub-3940256099942544/2934735716',
+    interstitial: 'ca-app-pub-3940256099942544/4411468910',
+  }
+}
+
+document.addEventListener('deviceready', function() {
+  admob.banner.config({
+    id: admobid.banner,
+    isTesting: true,
+    autoShow: true,
+  })
+  admob.banner.prepare()
+
+  admob.interstitial.config({
+    id: admobid.interstitial,
+    isTesting: true,
+    autoShow: false,
+  })
+  admob.interstitial.prepare()
+
+  document.getElementById('showAd').disabled = true
+  document.getElementById('showAd').onclick = function() {
+    admob.interstitial.show()
+  }
+
+}, false)
+
+document.addEventListener('admob.banner.events.LOAD_FAIL', function(event) {
+  console.log(event)
+})
+
+document.addEventListener('admob.interstitial.events.LOAD_FAIL', function(event) {
+  console.log(event)
+})
+
+document.addEventListener('admob.interstitial.events.LOAD', function(event) {
+  console.log(event)
+  document.getElementById('showAd').disabled = false
+})
+
+document.addEventListener('admob.interstitial.events.CLOSE', function(event) {
+  console.log(event)
+
+  admob.interstitial.prepare()
+})</functions><variables>gogo = 0 ;
+ </variables><comments/><sprites count="6"><sprite name="btn_001" centerx="40" centery="20" collisionshape="Box" collisionradius="40" collisionleft="0" collisionright="80" collisiontop="0" collisionbottom="40"/><sprite name="btn_002" centerx="40" centery="20" collisionshape="Box" collisionradius="40" collisionleft="0" collisionright="80" collisiontop="0" collisionbottom="40"/><sprite name="sprite_23" centerx="20" centery="20" collisionshape="Box" collisionradius="20" collisionleft="0" collisionright="40" collisiontop="0" collisionbottom="40"/><sprite name="sprite_24" centerx="20" centery="20" collisionshape="Box" collisionradius="20" collisionleft="0" collisionright="40" collisiontop="0" collisionbottom="40"/><sprite name="sprite_32" centerx="40" centery="20" collisionshape="Box" collisionradius="40" collisionleft="0" collisionright="80" collisiontop="0" collisionbottom="40"/><sprite name="sprite_33" centerx="40" centery="20" collisionshape="Box" collisionradius="40" collisionleft="0" collisionright="80" collisiontop="0" collisionbottom="40"/></sprites><frames count="6"><frame file="0" sprite="btn_001"/><frame file="0" sprite="btn_002"/><frame file="0" sprite="sprite_23"/><frame file="0" sprite="sprite_24"/><frame file="0" sprite="sprite_32"/><frame file="0" sprite="sprite_33"/></frames><sounds count="1"><sound name="snd_button" wav="" mp3="btn_on_3.mp3" ogg=""/></sounds><musics count="0"/><backgrounds count="0"/><fonts count="1"><font name="font_110" family="Arial" size="14" bold="1" italic="0"/></fonts><objects count="13"><object name="obj_btn_start" template="" prototype="1" scene="" sprite="btn_001" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="obj_btn_load" template="" prototype="1" scene="" sprite="btn_002" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="object_25" template="" prototype="1" scene="" sprite="sprite_23" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="object_26" template="" prototype="1" scene="" sprite="sprite_24" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="object_34" template="" prototype="1" scene="" sprite="sprite_32" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="object_35" template="" prototype="1" scene="" sprite="sprite_33" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="object_43" template="" prototype="1" scene="" sprite="" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="SceneObject57" template="object_35" prototype="0" scene="scene_3" sprite="sprite_33" x="100" y="240" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject58" template="object_34" prototype="0" scene="scene_3" sprite="sprite_32" x="220" y="80" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject59" template="object_26" prototype="0" scene="scene_3" sprite="sprite_24" x="220" y="160" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject60" template="object_25" prototype="0" scene="scene_3" sprite="sprite_23" x="100" y="160" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject61" template="obj_btn_load" prototype="0" scene="scene_3" sprite="btn_002" x="100" y="80" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject62" template="obj_btn_start" prototype="0" scene="scene_3" sprite="btn_001" x="220" y="240" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/></objects><scripts count="7"><script name="scr_7" object="obj_btn_start" event="Step" parameter="">if(mouse_check_pressed() &amp;&amp; position_meeting(mouse_x, mouse_y, obj_btn_start)) {
+	sound_play(snd_button);
+	gpgs_initialize();
+	sign_in();
+	//on_deviceready();
+	};</script><script name="scr_10" object="obj_btn_load" event="Step" parameter="">if(mouse_check_pressed() &amp;&amp; position_meeting(mouse_x, mouse_y, obj_btn_load)) {
+	sound_play(snd_button);
+	//sign_in();
+	submit_score();
+	//go_deviceready();
+	};</script><script name="scr_27" object="object_25" event="Step" parameter="">if(mouse_check_pressed() &amp;&amp; position_meeting(mouse_x, mouse_y, object_25)) {
+	sound_play(snd_button);
+	//sign_in();
+	show_stitial_show();
+	};</script><script name="scr_28" object="object_26" event="Step" parameter="">if(mouse_check_pressed() &amp;&amp; position_meeting(mouse_x, mouse_y, object_26)) {
+	sound_play(snd_button);
+	//submit_score();
+	//sign_out();
+	show_prepare_show();
+	};</script><script name="scr_40" object="object_34" event="Step" parameter="">if(mouse_check_pressed() &amp;&amp; position_meeting(mouse_x, mouse_y, object_34)) {
+	sound_play(snd_button);
+	show_Achievements();
+	};</script><script name="scr_41" object="object_35" event="Step" parameter="">if(mouse_check_pressed() &amp;&amp; position_meeting(mouse_x, mouse_y, object_35)) {
+	sound_play(snd_button);
+	show_leaderboards();
+	};</script><script name="scr_44" object="object_43" event="Draw" parameter="">draw_text(30, 100, "リーダボード");
+draw_text(30, 200, "アチーブメント");
+draw_text(210, 100, "show_leaderboards");
+draw_text(210, 200, "show_Achievements");</script></scripts><scenes count="1"><scene name="scene_3" width="320" height="320" speed="30" red="128" green="0" blue="128" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="320" viewportheight="320" viewportxborder="50" viewportyborder="50" viewportobject=""/></scenes><layers count="1"><layer name="layer_4" scene="scene_3" value="1000000"/></layers><tiles count="0"/><fns count="8"><fn name="gpgs_initialize" params="" description="">cordova.plugins.playGamesServices.initializer();
+//ondeviceready();</fn><fn name="sign_in" params="" description="">cordova.plugins.playGamesServices.signin();</fn><fn name="show_leaderboards" params="" description="">cordova.plugins.playGamesServices.showAllLeaderboards();</fn><fn name="submit_score" params="" description="">cordova.plugins.playGamesServices.submitScoreNow({score: 123, leaderBoardId: "CgkIo_-CnagaEAIQAQ"});</fn><fn name="show_Achievements" params="" description="">cordova.plugins.playGamesServices.showAchievements();</fn><fn name="sign_out" params="" description="">cordova.plugins.playGamesServices.signOut();</fn><fn name="show_stitial_show" params="" description="">	admob.interstitial.show();
+</fn><fn name="show_prepare_show" params="" description="">	admob.interstitial.prepare();</fn></fns></tululoo>
